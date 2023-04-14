@@ -7,4 +7,4 @@ function Loading() {
     </div>
   )
 }
-export { Loading }
+export default Loading

@@ -1,11 +1,9 @@
 import MovieContainer from '@/containers/movie'
-import Movies from '@/mocks/movies.json'
 import { notFound } from 'next/navigation'
+import { getMovieDetails } from '@/services/movie'
 
-function MoviePage({ params }) {
-  const movieDetail = Movies.results.find(
-    (movie) => movie.id === parseInt(params.id)
-  )
+async function MoviePage({ params }) {
+  const movieDetail = await getMovieDetails(params.id)
   if (!movieDetail) {
     notFound()
   }
